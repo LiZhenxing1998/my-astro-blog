@@ -3,9 +3,9 @@ import type { CardListData, Config, IntegrationUserConfig, ThemeUserConfig } fro
 export const theme: ThemeUserConfig = {
   // === Basic configuration ===
   /** Title for your website. Will be used in metadata and as browser tab title. */
-  title: 'Astro Theme Pure',
+  title: '我TM来啦',
   /** Will be used in index page & copyright declaration */
-  author: 'Pure Lab',
+  author: 'lizh',
   /** Description metadata for your website. Can be used in page metadata. */
   description: 'Stay hungry, stay foolish',
   /** The default favicon for your site which should be a path to an image in the `public/` directory. */
@@ -47,11 +47,11 @@ export const theme: ThemeUserConfig = {
   /** Configure the header of your site. */
   header: {
     menu: [
-      { title: 'Blog', link: '/blog' },
-      { title: 'Docs', link: '/docs' },
-      { title: 'Projects', link: '/projects' },
-      { title: 'Links', link: '/links' },
-      { title: 'About', link: '/about' }
+      { title: '博客', link: '/blog' },
+    //{ title: 'Docs', link: '/docs' },
+      { title: '项目', link: '/projects' },
+      { title: '链接', link: '/links' },
+      { title: '关于', link: '/about' }
     ]
   },
 
@@ -137,8 +137,8 @@ export const integ: IntegrationUserConfig = {
     // server: 'https://api.quotable.io/quotes/random?maxLength=60',
     // target: `(data) => data[0].content || 'Error'`
     // DummyJSON
-    server: 'https://dummyjson.com/quotes/random',
-    target: `(data) => (data.quote.length > 80 ? \`\${data.quote.slice(0, 80)}...\` : data.quote || 'Error')`
+    server: 'https://v1.hitokoto.cn/?c=i',
+    target: `(data) => data.hitokoto || 'Error'`
   },
   // UnoCSS typography
   // See: https://unocss.dev/presets/typography
