@@ -2,6 +2,7 @@
   "name": "d-my-astro-project",
   "type": "module",
   "version": "4.0.9",
+  "packageManager": "npm@10.9.0",
   "scripts": {
     "dev": "astro dev",
     "dev:check": "astro check --watch & astro dev",
