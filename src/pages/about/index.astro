@@ -5,66 +5,63 @@ import Substats from '@/components/about/Substats.astro'
 import ToolSection from '@/components/about/ToolSection.astro'
 
 const headings = [
-  { depth: 2, slug: 'hobbies', text: 'Hobbies' },
-  { depth: 2, slug: 'tools', text: 'Tools' },
-  { depth: 2, slug: 'social-networks', text: 'Social Networks' },
-  { depth: 2, slug: 'gossips', text: 'Gossips' },
-  { depth: 2, slug: 'about-blog', text: 'About Blog' }
+  { depth: 2, slug: 'interests', text: '兴趣方向' },
+  { depth: 2, slug: 'tools', text: '常用工具' },
+  { depth: 2, slug: 'social-networks', text: '社交网络' },
+  { depth: 2, slug: 'notes', text: '补充说明' },
+  { depth: 2, slug: 'about-blog', text: '关于博客' }
 ]
 ---
 
-<PageLayout title='About' {headings} comment>
-  <p>Developer / Designer</p>
+<PageLayout title='关于我' {headings} comment>
+  <p>机械工程 / CAE / 编程学习者</p>
   <p>
-   你好, 我叫。。。是一个兴趣使然、记录生活学习的机械工程师。
-    使用SolidWorks,CROE三维建模.ABAQUS,ANSYS仿真软件，以及简单的二次开发。
-    MATLAB，Latex。。。会使git、github等工具。
+    你好，我是 lizx。目前主要关注机械设计、有限元仿真、结构优化和工程问题中的
+    编程辅助工作，也会把折腾博客、效率工具和写作整理的过程记录下来。
   </p>
   <p>
-    My motto: Stay hungry, Stay foolish. <Spoiler>这里可以夹私货，比如为什么要演奏春日影！</Spoiler>
+    我的座右铭：求知若饥，虚心若愚。
+    <Spoiler>这个页面先放真实可维护的信息，夸张的模板文案就先退场了。</Spoiler>
   </p>
-  <Button title='Sponsor Me' class='w-fit' href='/projects#sponsorship' variant='ahead' />
+  <Button title='支持我' class='w-fit' href='/projects#sponsorship' variant='ahead' />
 
   {/* general-talk */}
-  <h2 id='hobbies'>Hobbies</h2>
+  <h2 id='interests'>兴趣方向</h2>
   <ul>
-    <li>Lorem ipsum dolor sit amet, vidit suscipit at mei.</li>
-    <li>
-      Quem denique mea id. Usu ei regione indoctum dissentiunt, cu meliore fuisset mei, vel quod
-      voluptua ne.
-    </li>
-    <li>Ex dicat impedit mel, at eum oratio possit voluptatum.</li>
-    <li>Impetus fuisset ullamcorper pri cu, his posse iisque ad, aliquam honestatis usu id.</li>
+    <li>机械设计、有限元分析、结构优化和工程软件二次开发。</li>
+    <li>把学习过程写成博客，让知识积累能被复用、检索和回看。</li>
+    <li>对 Astro、Markdown、LaTeX 这类偏表达与工具链的内容也有长期兴趣。</li>
+    <li>希望把工程背景和编程能力逐步结合起来，形成更稳定的个人工作流。</li>
   </ul>
 
   {/* tools */}
-  <h2 id='tools'>Tools</h2>
-  <p>Current support tools as follow:</p>
+  <h2 id='tools'>常用工具</h2>
+  <p>目前主要使用以下工具：</p>
   <ToolSection
     class='mb-5'
-    title='Design'
+    title='设计'
     tools={[
       {
         name: 'Photoshop',
-        description: 'Picture Editing',
+        description: '图片编辑',
         href: 'https://www.adobe.com/products/photoshop',
         icon: import('@/assets/tools/photoshop.svg?raw')
       },
       {
         name: 'Illustrator',
-        description: 'Vector Drawing',
+        description: '矢量绘图',
         href: 'https://www.adobe.com/products/illustrator',
         icon: import('@/assets/tools/illustrator.svg?raw')
       },
       {
         name: 'After Effects',
-        description: 'Motion Graphics',
+        description: '动态图形',
         href: 'https://www.adobe.com/products/aftereffects',
         icon: import('@/assets/tools/aftereffects.svg?raw')
       },
       {
         name: 'Premiere Pro',
-        description: 'Video Editing',
+        description: '视频剪辑',
         href: 'https://www.adobe.com/products/premiere',
         icon: import('@/assets/tools/premiere.svg?raw')
       }
@@ -72,29 +69,29 @@ const headings = [
   />
   <ToolSection
     class='mb-5'
-    title='Productivity'
+    title='效率'
     tools={[
       {
         name: 'Chrome',
-        description: 'Browser',
+        description: '浏览器',
         href: 'https://www.google.com/chrome/',
         icon: import('@/assets/tools/chrome.svg?raw')
       },
       {
         name: 'Firefox',
-        description: 'Browser',
+        description: '浏览器',
         href: 'https://www.mozilla.org/en-US/firefox',
         icon: import('@/assets/tools/firefox.svg?raw')
       },
       {
         name: 'Notion',
-        description: 'Note Taking',
+        description: '笔记整理',
         href: 'https://www.notion.so/',
         icon: import('@/assets/tools/notion.svg?raw')
       },
       {
         name: 'Typora',
-        description: 'Markdown Editor',
+        description: 'Markdown 编辑器',
         href: 'https://typora.io/',
         icon: import('@/assets/tools/typora.svg?raw')
       }
@@ -102,23 +99,23 @@ const headings = [
   />
   <ToolSection
     class='mb-5'
-    title='Development'
+    title='开发'
     tools={[
       {
         name: 'VS Code',
-        description: 'IDE',
+        description: '代码编辑器',
         href: 'https://code.visualstudio.com/',
         icon: import('@/assets/tools/vscode.svg?raw')
       },
       {
         name: 'Neovim',
-        description: 'IDE',
+        description: '代码编辑器',
         href: 'https://neovim.io/',
         icon: import('@/assets/tools/neovim.svg?raw')
       },
       {
         name: 'Sublime Text',
-        description: 'IDE',
+        description: '代码编辑器',
         href: 'https://www.sublimetext.com/',
         icon: import('@/assets/tools/sublime.svg?raw')
       }
@@ -126,17 +123,17 @@ const headings = [
   />
   <ToolSection
     class='mb-5'
-    title='Environment'
+    title='环境'
     tools={[
       {
         name: 'Arch Linux',
-        description: 'Linux Distribution',
+        description: 'Linux 发行版',
         href: 'https://archlinux.org/',
         icon: import('@/assets/tools/archlinux.svg?raw')
       },
       {
         name: 'Ubuntu 24.04 LTS',
-        description: 'Linux Distribution',
+        description: 'Linux 发行版',
         href: 'https://ubuntu.com/',
         icon: import('@/assets/tools/ubuntu.svg?raw')
       },
@@ -156,11 +153,9 @@ const headings = [
   />
 
   {/* social-networks */}
-  <h2 id='social-networks'>Social Networks</h2>
+  <h2 id='social-networks'>社交网络</h2>
   <p>
-    你好, 我叫。。。是一个兴趣使然、记录生活学习的机械工程师。
-    使用SolidWorks,CROE三维建模.ABAQUS,ANSYS仿真软件，以及简单的二次开发。
-    MATLAB，Latex。。。会使git、github等工具。
+    目前公开维护和持续更新的信息主要集中在 GitHub，其他社交入口后续再按需要补充。
   </p>
   <Substats
     stats={[
@@ -168,93 +163,60 @@ const headings = [
         platform: 'GitHub',
         icon: 'github',
         link: 'https://github.com/LiZhenxing1998',
-        text: 'followers',
-        api: 'github/cworld1'
-      },
-      {
-        platform: 'Telegram',
-        icon: 'telegram',
-        color: '#2ca5e0',
-        link: 'https://t.me/cworld0_cn',
-        text: 'subscribers',
-        api: 'telegram/cworld0_cn'
-      },
-      {
-        platform: 'Weibo',
-        icon: 'weibo',
-        color: '#e71f19',
-        link: 'https://weibo.com/cworld0',
-        text: 'followers',
-        api: 'weibo/5501674056'
-      },
-      {
-        platform: 'Steam',
-        icon: 'steam',
-        color: '#50769d',
-        link: 'https://steamcommunity.com/id/cworld',
-        text: 'games',
-        api: 'steamgames/76561199021278120'
+        text: '关注者',
+        api: 'github/LiZhenxing1998'
       }
     ]}
   />
 
-  {/* gossips */}
-  <h2 id='gossips'>Gossips</h2>
-  <Collapse title='Lorem ipsum'>
-    Lorem ipsum dolor sit amet, vidit suscipit at mei. Quem denique mea id. Usu ei regione indoctum
-    dissentiunt, cu meliore fuisset mei, vel quod voluptua ne. Ex dicat impedit mel, at eum oratio
-    possit voluptatum.
+  {/* notes */}
+  <h2 id='notes'>补充说明</h2>
+  <Collapse title='为什么还保留这个页面？'>
+    因为“关于我”不是一份一次性写完的简历，而是给读者、未来的自己和合作方一个更完整
+    的上下文入口。后续这里会逐步补齐研究兴趣、项目经历和长期维护的内容方向。
   </Collapse>
 
   {/* about-blog */}
-  <h2 id='about-blog'>About Blog</h2>
-  <p>Website history:</p>
+  <h2 id='about-blog'>关于博客</h2>
+  <p>站点历程：</p>
   <Timeline
     events={[
       {
-        date: '2024-04-29',
+        date: '2025-11-06',
         content:
-          'Website refactored using <a href="https://astro.build/" target="_blank">Astro</a> and <a href="https://github.com/srleom/astro-theme-resume" target="_blank">Astro Theme Resume</a>'
+          '博客切换到 <a href="https://astro.build/" target="_blank">Astro</a> 架构，并基于 <a href="https://github.com/cworld1/astro-theme-pure" target="_blank">Astro Theme Pure</a> 完成初版搭建。'
       },
       {
-        date: '2024-07-26',
+        date: '2025-11-27',
         content:
-          'Website abstracted as a theme and published on <a href="https://github.com/cworld1/astro-theme-pure"target="_blank">Github</a>'
+          '继续补充页面结构、博客内容和个性化配置，让它从模板站逐步变成个人博客。'
       },
       {
-        date: '2024-07-27',
-        content: 'Began writing website docs'
+        date: '2026-04-19',
+        content: '开始系统清理模板残留内容，并重新整理首页、关于页、项目页和友链页。'
       }
     ]}
   />
   <p>
-    The smooth operation and personalized customization of website also rely on the resources and
-    technical support provided by the following excellent projects/service providers:
+    当前站点运行主要依赖以下工具与服务：
   </p>
   <ul>
-    <li>Domain: <a href='#' target='_blank'>Vercel</a></li>
+    <li>框架：<a href='https://astro.build/' target='_blank'>Astro</a></li>
     <li>
-      Framework & Theme: <a href='https://astro.build/' target='_blank'>Astro</a> + <a
+      主题：<a
         href='https://github.com/cworld1/astro-theme-pure'
         target='_blank'>Astro Theme Pure</a
       >
     </li>
     <li>
-      Site hosting: <a href='https://vercel.com/' target='_blank'>Vercel</a>
+      部署：<a href='https://vercel.com/' target='_blank'>Vercel</a>
     </li>
     <li>
-      CI/CD: <a href='https://vercel.com/workflow' target='_blank'>Vercel Workflow</a>
+      搜索：<a href='https://pagefind.app/' target='_blank'>Pagefind</a>
     </li>
-    <!-- <li>Resources speedup: <a href='https://cdn.cbd.int/' target='_blank'>CBD CDN</a></li> -->
-    <li>Comment system: <a href='https://waline.js.org' target='_blank'>Waline</a></li>
+    <li>评论系统：<a href='https://waline.js.org' target='_blank'>Waline</a></li>
     <li>
-      Visits: <a href='https://supabase.com/' target='_blank'>Supabase</a> +
-      <a href='https://waline.js.org/' target='_blank'>Waline</a>
-    </li>
-    <li>
-      Other statistics: <a href='https://github.com/spencerwooo/substats' target='_blank'
-        >Substats</a
-      >
+      统计组件：<a href='https://github.com/spencerwooo/substats' target='_blank'>Substats</a>
     </li>
   </ul>
 </PageLayout>

@@ -22,7 +22,7 @@ const allPosts = await getBlogCollection()
 const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS)
 ---
 
-<PageLayout meta={{ title: 'Home' }} highlightColor='#659EB9'>
+<PageLayout meta={{ title: '首页' }} highlightColor='#659EB9'>
   <main class='flex w-full flex-col items-center'>
     <section class='animate mb-10 flex flex-col items-center gap-y-7' id='content-header'>
       <Image
@@ -35,13 +35,13 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS)
       <div class='flex flex-col items-center gap-y-4'>
         <h1 class='text-3xl font-bold'>{config.author}</h1>
         <div class='flex flex-wrap justify-center gap-x-7 gap-y-3'>
-          <Label title='China'>
+          <Label title='中国'>
             <Icon name='location' class='size-5' slot='icon' />
           </Label>
           <Label
-            title='Source code'
+            title='GitHub'
             as='a'
-            href='https://github.com/cworld1/astro-theme-pure'
+            href='https://github.com/LiZhenxing1998'
             target='_blank'
           >
             <Icon name='github' class='size-5' slot='icon' />
@@ -49,22 +49,20 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS)
         </div>
       </div>
 
-    
     </section>
 
     <div id='content' class='animate flex flex-col gap-y-10 md:w-4/5 lg:w-5/6'>
-      <Section title='About'>
-        <p class='text-muted-foreground'>Developer / Designer</p>
+      <Section title='关于'>
+        <p class='text-muted-foreground'>机械工程 / CAE / 编程学习者</p>
         <p class='text-muted-foreground'>
-          你好, 我叫。。。是一个兴趣使然、记录生活学习的机械工程师。
-          使用SolidWorks,CROE三维建模.ABAQUS,ANSYS仿真软件，以及简单的二次开发。
-          MATLAB，Latex。。。会使git、github等工具。
+          这里记录我的学习与实践，内容主要围绕机械设计、有限元分析、仿真优化，以及
+          一些和编程、写作、效率工具相关的折腾笔记。
         </p>
-        <Button title='More about me' class='w-fit self-end' href='/about' variant='ahead' />
+        <Button title='了解更多' class='w-fit self-end' href='/about' variant='ahead' />
       </Section>
       {
         allPostsByDate.length > 0 && (
-          <Section title='Posts'>
+          <Section title='文章'>
             <ul class='flex flex-col gap-y-1.5 sm:gap-y-2'>
               {allPostsByDate.map((p) => (
                 <li class='flex flex-col gap-x-2 sm:flex-row'>
@@ -72,46 +70,17 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS)
                 </li>
               ))}
             </ul>
-            <Button title='More posts' class='w-fit self-end' href='/blog' variant='ahead' />
+            <Button title='查看更多文章' class='w-fit self-end' href='/blog' variant='ahead' />
           </Section>
         )
       }
 
-      {
-        /* <Section title='Experience'>
-      <Card
-        heading='Lorem Ipsum'
-        subheading='Sit amet consectetur'
-        date='Dec 2022 - Nov 2023'
-        imagePath='/src/assets/about-astro.png'
-        altText='Lorem, ipsum dolor sit'
-        imageClass='h-12 w-auto md:-start-16'
-      >
-        <ul class='ms-4 list-disc text-muted-foreground'>
-          <li>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolore debitis recusandae, ut
-            molestiae laboriosam pariatur!
-
-            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, pariatur!</li>
-          </li>
-        </ul>
-      </Card>
-      <Card
-        heading='Lorem Ipsum'
-        subheading='Sit amet consectetur'
-        date='Dec 2022 - Nov 2023'
-        imagePath='/src/assets/about-astro.png'
-        altText='Lorem, ipsum dolor sit'
-        imageClass='h-12 w-auto md:-start-16'
-      />
-    </Section> */
-      }
-      <Section title='Education'>
+      <Section title='教育经历'>
         <Card
           as='a'
           heading='燕山大学'
           subheading='机械制造及其自动化'
-          date='August 2021 - July 2024'
+          date='2021.08 - 2024.07'
           href='https://mec.ysu.edu.cn/'
         >
          <img
@@ -123,69 +92,58 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS)
           as='a'
           heading='燕山大学'
           subheading='机械设计制造及其自动化'
-          date='August 2017 - July 2021'
+          date='2017.08 - 2021.07'
           href='https://www.ysu.edu.cn/'       
         >
           <img
             class='absolute end-0 z-0 m-0 -my-2 h-full w-1/2 object-cover opacity-20'
             src='/images/燕山大学.svg'
           />
-          {
-            /* <ul class='ms-4 list-disc text-muted-foreground'>
-          <li>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolore debitis recusandae, ut
-            molestiae laboriosam pariatur!
-          </li>
-          <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, pariatur!</li>
-        </ul> */
-          }
         </Card>
       </Section>
 
-      <Section title='Website List'>
+      <Section title='站点入口'>
         <div class='grid grid-cols-1 gap-3 sm:grid-cols-2'>
           <ProjectCard
-            href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'
-            heading='Lorem ipsum'
-            subheading='dolor sit amet, oratio ornatus explicari pro ex'
+            href='/blog'
+            heading='博客文章'
+            subheading='记录机械、仿真、编程与日常学习过程中的思考与实践。'
             imagePath='/src/assets/projects/alex-tyson-2BAXJ7ha74s-unsplash.jpg'
           />
           <ProjectCard
-            href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'
-            heading='Lorem ipsum'
-            subheading='dolor sit amet, oratio ornatus explicari pro ex'
+            href='/projects'
+            heading='项目与实验'
+            subheading='集中展示这个站点本身，以及正在整理中的学习方向与项目主题。'
             imagePath='/src/assets/projects/angelica-teran-Bk9hpaXHK4o-unsplash.jpg'
           />
           <ProjectCard
-            href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'
-            heading='Lorem ipsum'
-            subheading='dolor sit amet, oratio ornatus explicari pro ex'
+            href='/about'
+            heading='关于我'
+            subheading='个人背景、常用工具、站点演进和一些偏生活化的信息。'
             imagePath='/src/assets/projects/kseniia-zapiatkina-yATU3rg8tNI-unsplash.jpg'
           />
           <ProjectCard
-            href='/projects'
-            heading='More projects'
-            subheading='Check out more projects'
+            href='/links'
+            heading='友链'
+            subheading='看看我常访问的网站，也欢迎通过留言交换链接。'
             imagePath='/src/assets/projects/wen-qiao-g_w8I64FiO0-unsplash.jpg'
           />
         </div>
       </Section>
 
-      <Section title='Certifications'>
+      <Section title='当前关注'>
         <Card
-          as='a'
-          heading='Lorem ipsum'
-          subheading='Lorem ipsum dolor sit amet, vidit suscipit at mei. Quem denique mea id. Usu ei regione indoctum dissentiunt, cu meliore fuisset mei, vel quod voluptua ne. Ex dicat impedit mel, at eum oratio possit voluptatum. Dicat ceteros cu vim. Impetus fuisset ullamcorper pri cu, his posse iisque ad, aliquam honestatis usu id.'
-          date='July 2024'
-          href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'
+          heading='当前关注'
+          subheading='有限元分析、结构优化、工程数值计算，以及如何用 Astro 把这些学习过程整理成持续可维护的个人知识博客。'
+          date='现在'
         />
       </Section>
 
-      <Section title='Skills'>
-        <SkillLayout title='Languages' skills={languages} />
-        <SkillLayout title='Frontend' skills={frontend} />
-        <SkillLayout title='Tools' skills={developmentTools} />
-        <SkillLayout title='Other' skills={others} />
+      <Section title='技能栈'>
+        <SkillLayout title='语言' skills={languages} />
+        <SkillLayout title='前端' skills={frontend} />
+        <SkillLayout title='工具' skills={developmentTools} />
+        <SkillLayout title='其他' skills={others} />
       </Section>
     </div>
     <Quote class='mt-12' />

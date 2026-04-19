@@ -7,165 +7,116 @@ import ProjectSection from '@/components/projects/ProjectSection.astro'
 import Sponsors from '@/components/projects/Sponsors.astro'
 import Sponsorship from '@/components/projects/Sponsorship.astro'
 import alipay from '@/assets/alipay-qrcode.jpg'
-import KeyIcon from '@/assets/icons/key.svg'
 import wechat from '@/assets/wechat-qrcode.jpg'
 
 const headings = [
-  { depth: 2, slug: 'theme', text: 'Theme' },
-  { depth: 2, slug: 'programs', text: 'Programs' },
-  { depth: 2, slug: 'learnings', text: 'Learnings' },
-  { depth: 2, slug: 'others', text: 'Others' },
-  { depth: 2, slug: 'gpg-signature', text: 'GPG Signature' },
-  { depth: 2, slug: 'sponsorship', text: 'Sponsorship' }
+  { depth: 2, slug: 'site', text: '站点' },
+  { depth: 2, slug: 'writing-topics', text: '写作方向' },
+  { depth: 2, slug: 'roadmap', text: '后续计划' },
+  { depth: 2, slug: 'sponsorship', text: '赞助支持' }
 ]
 ---
 
-<PageLayout title='Projects' {headings} view>
-  <p>Github Activities:</p>
+<PageLayout title='项目' {headings} view>
+  <p>GitHub 活动：</p>
   <p>
     <Image
-      src='https://ghchart.rshah.org/659eb9/cworld1'
-      alt='github activities'
+      src='https://ghchart.rshah.org/659eb9/LiZhenxing1998'
+      alt='GitHub 活动图'
       inferSize
       loading='lazy'
     />
   </p>
   <p>
-    If you think it would be useful or interesting to collaborate on a project, you can donate to
-    support my work or contact me to discuss a project.
+    这一页不再展示主题模板自带的示例项目，而是集中介绍这个站点本身、写作方向和后续整理计划。
   </p>
-  <Button title='Checkout sponsorship' class='w-fit' href='#sponsorship'>
+  <Button title='查看赞助方式' class='w-fit' href='#sponsorship'>
     <Icon class='size-5' name='receive-money' slot='before' />
   </Button>
 
-  <h2 id='theme'>Theme</h2>
+  <h2 id='site'>站点</h2>
   <ProjectSection
     projects={[
       {
-        name: '🍭 Astro-theme-pure',
-        description: 'A simple, clean but powerful blog theme build by astro.',
+        name: '个人博客',
+        description: '基于 Astro 搭建的个人博客，用来沉淀机械、仿真、编程和学习记录。',
         links: [
-          { type: 'github', href: 'https://github.com/cworld1/astro-theme-pure' },
-          { type: 'site', href: 'https://github.com/cworld1/astro-theme-pure' },
+          { type: 'github', href: 'https://github.com/LiZhenxing1998/my-astro-blog' },
+          { type: 'site', href: 'https://lizx.vercel.app/' },
           {
             type: 'doc',
-            href: 'https://github.com/cworld1/astro-theme-pure/blob/main/src/content/blog/customize/index.md'
+            href: '/about'
           }
         ]
       }
     ]}
   />
 
-  <h2 id='programs'>Programs</h2>
+  <h2 id='writing-topics'>写作方向</h2>
   <ProjectSection
     projects={[
       {
-        name: '📒 Notie',
-        description:
-          'Android note App complies with Material You specifications, developed using Java',
-        links: [
-          { type: 'github', href: 'https://github.com/cworld1/notie' },
-          {
-            type: 'release',
-            href: 'https://github.com/cworld1/notie/releases'
-          }
-        ]
+        name: '机械与仿真',
+        description: '围绕 SolidWorks、Creo、ABAQUS、ANSYS 和工程分析方法做记录。',
+        links: [{ type: 'site', href: '/blog' }]
       },
       {
-        name: '💄 PKU Art',
-        description: 'A script to beautify pku course website',
-        links: [
-          { type: 'github', href: 'https://github.com/zhuozhiyongde/pku-art' },
-          { type: 'site', href: 'https://github.com/zhuozhiyongde/pku-art' },
-          { type: 'doc', href: 'https://docs.arthals.ink/docs/pku-art' }
-        ]
+        name: '编程与工具链',
+        description: '记录 Astro、Markdown、LaTeX 以及效率工具相关的使用经验与踩坑。',
+        links: [{ type: 'site', href: '/blog' }]
       }
     ]}
   />
-  <Collapse title='Some old projects'>
+  <Collapse title='当前已经写过的内容类型'>
     <ProjectSection
       projects={[
         {
-          name: 'Search Switcher',
-          description: 'Add links to each other in search engines',
-          links: [{ type: 'github', href: 'https://github.com/cworld1/search-switcher' }]
+          name: '有限元与优化',
+          description: '例如 ANSYS 拓扑优化方法、约束条件等入门与整理型文章。',
+          links: [{ type: 'site', href: '/blog' }]
         },
         {
-          name: 'Pure Baidu',
-          description: 'Baidu search page beautification module',
-          links: [
-            { type: 'doc', href: 'https://cworld0.com/blog/pure-baidu' },
-            { type: 'site', href: 'https://userstyles.org/styles/173673/pure' }
-          ]
+          name: '子程序与实践笔记',
+          description: '例如 Umat 子程序相关的简单示例与经验记录。',
+          links: [{ type: 'site', href: '/blog' }]
         }
       ]}
     />
   </Collapse>
 
-  <h2 id='learnings'>Learnings</h2>
+  <h2 id='roadmap'>后续计划</h2>
   <ProjectSection
     class='my-2'
     projects={[
       {
-        name: 'Rust Learning',
-        description: 'Some notes and code about CWorld learning Rust',
-        links: [{ type: 'github', href: 'https://github.com/cworld1/rust-learning' }]
+        name: '内容清理',
+        description: '继续替换模板默认文案，统一页面风格，补齐站点的真实信息。',
+        links: [{ type: 'site', href: '/about' }]
       },
       {
-        name: 'CS 213 Learning',
-        description: 'Notes, code and experiences for Introduction to Computer Systems course',
-        links: [
-          {
-            type: 'github',
-            href: 'https://github.com/zhuozhiyongde/Introduction-To-Computer-System-2023Fall-PKU'
-          }
-        ]
+        name: '内容扩展',
+        description: '补充更多和机械工程、仿真优化、工程编程相关的系列文章。',
+        links: [{ type: 'site', href: '/blog' }]
       }
     ]}
   />
-
-  <h2 id='others'>Others</h2>
-  <ProjectSection
-    projects={[
-      {
-        name: 'CWorld',
-        description: "CWorld's Github",
-        links: [{ type: 'github', href: 'https://github.com/cworld1' }]
-      },
-      {
-        name: 'Arthals',
-        description: 'Arthals Github',
-        links: [{ type: 'github', href: 'https://github.com/zhuozhiyongde' }]
-      }
-    ]}
-  />
-
-  <!-- gpg signature -->
-  <h2 id='gpg-signature'>GPG Signature</h2>
-  <p>
-    You can verify the authenticity of the files I signed by checking the GPG signature. My GPG key
-    is <code>114514</code>, and you can find it on the opengpg key servers or download from it.
-  </p>
-  <Button href='https://keys.openpgp.org/search?q=114514' title='Checkout my key' target='_blank'>
-    <KeyIcon class='size-5' slot='before' />
-  </Button>
 
   <!-- sponsorship -->
-  <h2 id='sponsorship'>Sponsorship</h2>
-  <p>Please leave a message or contact me proactively after sponsorship.</p>
+  <h2 id='sponsorship'>赞助支持</h2>
+  <p>如果这些内容对你有帮助，欢迎通过赞助支持我继续维护和整理这个博客。</p>
   <Sponsorship
     methods={[
-      { name: 'WeChat', icon: 'wechat-pay', image: wechat },
-      { name: 'Alipay', icon: 'alipay', image: alipay }
+      { name: '微信', icon: 'wechat-pay', image: wechat },
+      { name: '支付宝', icon: 'alipay', image: alipay }
     ]}
   />
-  <p>Thanks to the following sponsors:</p>
+  <p>感谢以下赞助者：</p>
   <Sponsors
     progressMax={25}
     sponsors={[
-      { name: 'Arthals', platform: 'Wechat', amount: 50, date: '2025-11-06' },
-      { name: '顾**', platform: 'Wechat', amount: 28, date: '2025-06-23' },
-      { name: 'Anonymous', platform: 'Wechat', amount: 20, date: '2022-04-06' },
+      { name: 'Arthals', platform: '微信', amount: 50, date: '2025-11-06' },
+      { name: '顾**', platform: '微信', amount: 28, date: '2025-06-23' },
+      { name: '匿名', platform: '微信', amount: 20, date: '2022-04-06' },
       { name: '华雄 (1300****71)', platform: 'QQ', amount: 5, date: '2019-12-30' },
       { name: '◌ (1934****45)', platform: 'QQ', amount: 3, date: '2019-12-30' },
       { name: 'C*a (酷安@暴走の蜗牛)', amount: 2, date: '2019-07-02' }

@@ -7,36 +7,36 @@ import PageLayout from '@/layouts/CommonPage.astro'
 import FriendList from '@/components/links/FriendList.astro'
 
 const headings = [
-  { depth: 2, slug: 'common-links', text: 'Common Links' },
-  { depth: 2, slug: 'special-links', text: 'Special Links' },
-  { depth: 2, slug: 'apply-links', text: 'Apply Links' }
+  { depth: 2, slug: 'common-links', text: '常用友链' },
+  { depth: 2, slug: 'special-links', text: '特别链接' },
+  { depth: 2, slug: 'apply-links', text: '申请友链' }
 ]
 
 const { friends } = links
 const linksConf = config.integ.links
-const linkEditPage = 'https://github.com/cworld1/astro-theme-pure/blob/main/public/links.json'
+const linkEditPage = 'https://github.com/LiZhenxing1998/my-astro-blog/blob/main/public/links.json'
 ---
 
-<PageLayout title='Links' {headings} comment>
-  <p>怎么可能有顺序呢，当然是随机的~ It's random</p>
-  <h2 id='common-links'>Common Links</h2>
+<PageLayout title='友链' {headings} comment>
+  <p>友链卡片会随机打乱顺序，所以你每次打开看到的排列都可能不一样。</p>
+  <h2 id='common-links'>常用友链</h2>
   <FriendList list={friends[0]} />
-  <Collapse title='Links with Bad Status'>
+  <Collapse title='状态异常的友链'>
     <FriendList list={friends[1]} />
   </Collapse>
-  <Collapse title='Link History Book'>
+  <Collapse title='友链记录'>
     <Timeline events={linksConf.logbook} />
   </Collapse>
-  <h2 id='special-links'>Special Links</h2>
+  <h2 id='special-links'>特别链接</h2>
   <FriendList list={friends[2]} />
 
   <!-- apply-links -->
-  <h2 id='apply-links'>Apply Links</h2>
-  <p>本站信息（点击复制）The site information (click to copy)：</p>
+  <h2 id='apply-links'>申请友链</h2>
+  <p>本站信息如下，点击即可复制：</p>
   <blockquote class='not-prose grid grid-cols-[auto_1fr] gap-x-2 break-words border-s-4 ps-4'>
     {
       linksConf.applyTip.map(({ name, val }) => {
-        const script = `navigator.clipboard.writeText('${val}');document.dispatchEvent(new CustomEvent('toast',{detail:{message:'Copied "${val}" to clipboard!'}}))`
+        const script = `navigator.clipboard.writeText('${val}');document.dispatchEvent(new CustomEvent('toast',{detail:{message:'已复制：${val}'}}))`
         return (
           <>
             <span class='text-end'>{name}:</span>
@@ -50,14 +50,12 @@ const linkEditPage = 'https://github.com/cworld1/astro-theme-pure/blob/main/publ
   </blockquote>
 
   <p>
-    可通过下方留言或 <a href={linkEditPage} target='_blank'>提交 PR</a> 申请友链。此外申请说明：<br
-    />
-    Apply your link by leaving comment or <a href={linkEditPage} target='_blank'>Submitting a PR</a
-    >. Additional info:
+    可以通过页面评论或直接 <a href={linkEditPage} target='_blank'>提交 PR</a> 的方式申请友链。
+    申请前请确认以下几点：
   </p>
   <ul>
-    <li>在你的友链上添加了本站. You've recommended this site on your website.</li>
-    <li>请确保你的站点活着. Make sure your site is alive.</li>
-    <li>博客内容不违反国家法律. Content does not violate common laws.</li>
+    <li>你的网站已添加本站，或至少有明确的互链意愿。</li>
+    <li>站点可正常访问，基本信息完整。</li>
+    <li>内容稳定更新，且不包含明显违规或恶意信息。</li>
   </ul>
 </PageLayout>

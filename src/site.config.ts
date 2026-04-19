@@ -5,17 +5,17 @@ export const theme: ThemeUserConfig = {
   /** Title for your website. Will be used in metadata and as browser tab title. */
   title: '我TM来啦',
   /** Will be used in index page & copyright declaration */
-  author: 'lizh',
+  author: 'lizx',
   /** Description metadata for your website. Can be used in page metadata. */
-  description: 'Stay hungry, stay foolish',
+  description: '保持求知，保持好奇',
   /** The default favicon for your site which should be a path to an image in the `public/` directory. */
   favicon: '/favicon/favicon.ico',
   /** Specify the default language for this site. */
   locale: {
-    lang: 'en-US',
-    attrs: 'en_US',
+    lang: 'zh-CN',
+    attrs: 'zh_CN',
     // Date locale
-    dateLocale: 'en-US',
+    dateLocale: 'zh-CN',
     dateOptions: {
       day: 'numeric',
       month: 'short',
@@ -48,10 +48,9 @@ export const theme: ThemeUserConfig = {
   header: {
     menu: [
       { title: '博客', link: '/blog' },
-    //{ title: 'Docs', link: '/docs' },
       { title: '项目', link: '/projects' },
-      { title: '链接', link: '/links' },
-      { title: '关于', link: '/about' }
+      { title: '友链', link: '/links' },
+      { title: '关于我', link: '/about' }
     ]
   },
 
@@ -61,20 +60,19 @@ export const theme: ThemeUserConfig = {
     year: `© ${new Date().getFullYear()}`,
     // year: `© 2019 - ${new Date().getFullYear()}`,
     links: [
-      // Registration link
       {
-        title: 'Moe ICP 114514',
-        link: 'https://icp.gov.moe/?keyword=114514',
+        title: '项目仓库',
+        link: 'https://github.com/LiZhenxing1998/my-astro-blog',
         style: 'text-sm' // Uno/TW CSS class
       },
       {
-        title: 'Travelling',
+        title: '开往',
         link: 'https://www.travellings.cn/go.html',
         style: 'text-sm'
       },
       // Privacy Policy link
       {
-        title: 'Site Policy',
+        title: '站点政策',
         link: '/terms/list',
         pos: 2 // position set to 2 will be appended to copyright line
       }
@@ -82,7 +80,7 @@ export const theme: ThemeUserConfig = {
     /** Enable displaying a “Astro & Pure theme powered” link in your site’s footer. */
     credits: true,
     /** Optional details about the social media accounts for this site. */
-    social: { github: 'https://github.com/cworld1/astro-theme-pure' }
+    social: { github: 'https://github.com/LiZhenxing1998' }
   },
 
   content: {
@@ -101,24 +99,24 @@ export const theme: ThemeUserConfig = {
   }
 }
 
+const walineServer = process.env.PUBLIC_WALINE_SERVER_URL?.trim()
+
 export const integ: IntegrationUserConfig = {
   // Links management
   // See: https://astro-pure.js.org/docs/integrations/links
   links: {
     // Friend logbook
     logbook: [
-      { date: '2025-03-16', content: 'Is there a leakage?' },
-      { date: '2025-03-16', content: 'A leakage of what?' },
-      { date: '2025-03-16', content: 'I have a full seat of water, like, full of water!' },
-      { date: '2025-03-16', content: 'Must be the water.' },
-      { date: '2025-03-16', content: "Let's add that to the words of wisdom." }
+      { date: '2025-11-06', content: '博客迁移到 Astro 主题方案并完成基础页面搭建。' },
+      { date: '2025-11-27', content: '补充项目页、关于页和博客内容结构。' },
+      { date: '2026-04-19', content: '开始清理模板残留内容，整理为个人博客站点。' }
     ],
     // Yourself link info
     applyTip: [
-      { name: 'Name', val: theme.title },
-      { name: 'Desc', val: theme.description || 'Null' },
-      { name: 'Link', val: 'https://astro-pure.js.org/' },
-      { name: 'Avatar', val: 'https://astro-pure.js.org/favicon/favicon.ico' }
+      { name: '名称', val: theme.title },
+      { name: '描述', val: theme.description || '个人博客' },
+      { name: '链接', val: 'https://lizx.vercel.app/' },
+      { name: '头像', val: 'https://lizx.vercel.app/favicon/favicon.ico' }
     ],
     // Cache avatars in `public/avatars/` to improve user experience.
     cacheAvatar: false
@@ -131,14 +129,14 @@ export const integ: IntegrationUserConfig = {
     // Hitokoto
     // https://developer.hitokoto.cn/sentence/#%E8%AF%B7%E6%B1%82%E5%9C%B0%E5%9D%80
     // server: 'https://v1.hitokoto.cn/?c=i',
-    // target: `(data) => (data.hitokoto || 'Error')`
+    // target: `(data) => (data.hitokoto || 'Error')` 
     // Quoteable API (down temporarily)
     // https://github.com/lukePeavey/quotable
     // server: 'https://api.quotable.io/quotes/random?maxLength=60',
     // target: `(data) => data[0].content || 'Error'`
     // DummyJSON
-    server: 'https://v1.hitokoto.cn/?c=i',
-    target: `(data) => data.hitokoto || 'Error'`
+     server: 'https://v1.hitokoto.cn/?c=i',
+     target: `(data) => data.hitokoto || 'Error'`
   },
   // UnoCSS typography
   // See: https://unocss.dev/presets/typography
@@ -160,9 +158,9 @@ export const integ: IntegrationUserConfig = {
   },
   // Comment system
   waline: {
-    enable: true,
+    enable: Boolean(walineServer),
     // Server service link
-    server: 'https://astro-theme-pure-waline.arthals.ink/',
+    server: walineServer,
     // Refer https://waline.js.org/en/guide/features/emoji.html
     emoji: ['bmoji', 'weibo'],
     // Refer https://waline.js.org/en/reference/client/props.html
@@ -171,8 +169,8 @@ export const integ: IntegrationUserConfig = {
       pageview: true,
       comment: true,
       locale: {
-        reaction0: 'Like',
-        placeholder: 'Welcome to comment. (Email to receive replies. Login is unnecessary)'
+        reaction0: '赞',
+        placeholder: '欢迎留言交流。（填写邮箱可接收回复提醒，无需登录）'
       },
       imageUploader: false
     }
@@ -180,22 +178,22 @@ export const integ: IntegrationUserConfig = {
 }
 
 export const terms: CardListData = {
-  title: 'Terms content',
+  title: '站点政策',
   list: [
     {
-      title: 'Privacy Policy',
+      title: '隐私政策',
       link: '/terms/privacy-policy'
     },
     {
-      title: 'Terms and Conditions',
+      title: '服务条款',
       link: '/terms/terms-and-conditions'
     },
     {
-      title: 'Copyright',
+      title: '版权声明',
       link: '/terms/copyright'
     },
     {
-      title: 'Disclaimer',
+      title: '免责声明',
       link: '/terms/disclaimer'
     }
   ]

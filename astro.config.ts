@@ -22,9 +22,9 @@ import config from './src/site.config.ts'
 // https://astro.build/config
 export default defineConfig({
   // Top-Level Options
-  site: 'https://lizhenxing1998.github.io/',
+  site: 'https://lizx.vercel.app/',
   // Deploy to a sub path; See https://astro-pure.js.org/docs/setup/deployment#platform-with-base-path
-  // base: '/astro-pure/',
+   // base: '/my-astro-blog/',
   trailingSlash: 'never',
 
   // Adapter
