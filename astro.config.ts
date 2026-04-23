@@ -26,6 +26,12 @@ export default defineConfig({
   // Deploy to a sub path; See https://astro-pure.js.org/docs/setup/deployment#platform-with-base-path
    // base: '/my-astro-blog/',
   trailingSlash: 'never',
+  redirects: {
+    '/blog/ansys拓扑优化方法及几种约束': {
+      status: 301,
+      destination: '/blog/ansys-topology-optimization-methods-and-constraints'
+    }
+  },
 
   // Adapter
   // https://docs.astro.build/en/guides/deploy/
