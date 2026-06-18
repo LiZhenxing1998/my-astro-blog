@@ -35,6 +35,7 @@ astro-dev*.log
 
 ### Custom ###
 .DS_Store
+.idea/
 old_blog
 ignore.*
 bunfig.toml
